@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+.main-div {
+    display: grid;
+    grid-template-columns: 100px 100px;
+
+}
+
+.poke {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: khaki;
+}
