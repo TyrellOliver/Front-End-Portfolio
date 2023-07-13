@@ -1,15 +1,37 @@
 h1 {
-    text-align: center;
+  text-align: center;
+}
+
+.header{
+    /* background-color: darkred; */
+    height: 100px;
+    display: flex;
+}
+
+nav {
+    padding-right: 500px;
+    border: 1px solid black;
 }
 
 .main-div {
-    display: grid;
-    grid-template-columns: 100px 100px;
+    display: flex;
+}
 
+.poke-types {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 100px 100px 100px;
 }
 
 .poke {
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: khaki;
+  background-color: burlywood;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+
+.poke p {
+    padding-top: 20px;
 }

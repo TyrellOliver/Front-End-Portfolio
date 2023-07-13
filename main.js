@@ -8,7 +8,7 @@ fireTypePromise
   .then((data) => {
     console.log(data);
     data.pokemon.forEach((pokemonType) => {
-        // console.log(pokemonType);
+      // console.log(pokemonType);
       const pokemonPromise = fetch(pokemonType.pokemon.url);
       pokemonPromise
         .then((pokemonResponse) => {
@@ -16,12 +16,16 @@ fireTypePromise
         })
         .then((data) => {
           console.log(data);
+          const pokeData = data.name;
+          const mainDiv = document.querySelector(".main-div");
+          const pokeTypes = document.querySelectorAll(".poke");
+          pokeTypes.addEventListener("click", () => {
+            mainDiv.appendChild(pokeData)
+          });
         });
     });
   })
-  .catch((error)=>{
-    console.log("Error fetching data: ", error)
+  .catch((error) => {
+    console.log("Error fetching data: ", error);
   });
 // console.log(fireTypePromise);
-// console.log(Object.keys(fireTypePromise));
-
