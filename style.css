@@ -36,6 +36,10 @@ nav {
     padding-top: 20px;
 }
 
-.poke-search{
+.poke-finder{
     text-align: center;
 }
+
+/* .poke-search{
+    display: flex;
+} */

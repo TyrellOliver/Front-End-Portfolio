@@ -1,5 +1,7 @@
 // console.log( fetch('https://pokeapi.co/api/v2/'))
 
+const mainDiv = document.querySelector(".main-div");
+
 // This fetches all of the fire type data from the pokemon api
 const fireTypePromise = fetch("https://pokeapi.co/api/v2/type/10/");
 fireTypePromise
@@ -26,17 +28,19 @@ fireTypePromise
             .then((speciesResponse) => {
               return speciesResponse.json();
             })
-            .then((speciesData) => { // The data we can use
-              const generation = speciesData.generation.name;  // Use dot notation to get the generation of the pokemon
+            .then((speciesData) => {
+              // The data we can use
+              const generation = speciesData.generation.name; // Use dot notation to get the generation of the pokemon
               //   console.log(generation);
               const pokeImg = pokedata.sprites.front_default; // Use dot notation to get the picture of the pokemon
 
               const fireType = document.querySelector(".poke.two"); // Selecting the element that is being interacted with
-              fireType.addEventListener("click", () => {  // Adding a click event to it
+              fireType.addEventListener("click", () => {
+                // Adding a click event to it
                 const mainDiv = document.querySelector(".main-div"); // Selecting the div that will house the pokemon's information
                 const existingContent = mainDiv.querySelector(".poke-details");
-                 //// This is saying that if the pokemon's detail's that we're gonna create exists/ is true then remove it, because if you don't then all of the pokemon will show up on the page when clicked
-                if (existingContent) {                                          
+                //// This is saying that if the pokemon's detail's that we're gonna create exists/ is true then remove it, because if you don't then all of the pokemon will show up on the page when clicked
+                if (existingContent) {
                   existingContent.remove();
                 }
                 const pokeDetails = document.createElement("div"); // Creates a new div to have the information inside of
@@ -74,3 +78,21 @@ fireTypePromise
     console.log("Error fetching data: ", error);
   });
 // console.log(fireTypePromise);
+
+const searchPokemon = () => {
+  const pokeName = document.querySelector("#name").value;
+  const pokeType = document.querySelector("#type").value;
+
+  const createNewElement = document.createElement("div");
+  createNewElement.classList.add("poke-details");
+  createNewElement.innerHTML = ` 
+    <h2>${pokeName}</h2>
+    <p>${pokeType}</p> 
+    `;
+  mainDiv.appendChild(createNewElement);
+};
+
+const submitButton = document.querySelector("#submit");
+submitButton.addEventListener("click", () => {
+  searchPokemon();
+});
